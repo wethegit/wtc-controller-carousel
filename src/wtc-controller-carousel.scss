@@ -1,0 +1,39 @@
+@mixin carousel-resize($height, $ratio, $items) {
+  $total: length($items) - 1;
+
+  @for $i from 0 through $total {
+    $width: nth($items, $i + 1) * $ratio;
+
+    .carousel__item--#{$i} {
+      height: $height * $ratio;
+      width: $width;
+    }
+  }
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel__container {
+  min-width: 4500px;
+  display: flex;
+  will-change: transform;
+}
+
+.carousel__item {
+  position: relative;
+}
+
+.carousel__item > * {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  position: absolute;
+
+  &::before {
+    content: '';
+    display: block;
+  }
+}
