@@ -81,7 +81,7 @@ class Carousel extends ElementController {
   onPointerMove(e) {
     const hasClass = (element) => {
       if (!element || !element.parentNode || element.classList.contains('carousel__container')) return false;
-      if (element.classList.contains('carousel__frame--hover')) return true;
+      if (element.classList.contains('carousel__item--hover')) return true;
       return hasClass(element.parentNode);
     }
 
