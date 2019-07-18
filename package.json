@@ -1,7 +1,6 @@
 {
   "name": "wtc-controller-carousel",
   "version": "1.0.0",
-  "private": true,
   "main": "dist/wtc-controller-carousel.js",
   "style": "dist/wtc-controller-carousel.css",
   "scripts": {

@@ -8,9 +8,11 @@ class Carousel extends ElementController {
     this.el = element;
     this.container = this.el.querySelector('.carousel__container');
     this.children = [];
+
     for (let i = 0; i < this.container.children.length; i++) {
       this.children.push(this.container.children[i].cloneNode(true));
     }
+
     this.nextChild = 0;
 
     this.onPointerLeave = this.onPointerLeave.bind(this);
@@ -18,8 +20,8 @@ class Carousel extends ElementController {
     this.onResize = this.onResize.bind(this);
     this.run = this.run.bind(this);
 
-    this.el.addEventListener('mousemove', this.onPointerMove);
-    this.el.addEventListener('mouseleave', this.onPointerLeave);
+    this.el.addEventListener('pointermove', this.onPointerMove);
+    this.el.addEventListener('pointerleave', this.onPointerLeave);
 
     this.testSize();
 
@@ -78,8 +80,8 @@ class Carousel extends ElementController {
 
   onPointerMove(e) {
     const hasClass = (element) => {
-      if (!element || !element.parentNode || element.classList.contains('container')) return false;
-      if (element.classList.contains('carousel__frame--product')) return true;
+      if (!element || !element.parentNode || element.classList.contains('carousel__container')) return false;
+      if (element.classList.contains('carousel__frame--hover')) return true;
       return hasClass(element.parentNode);
     }
 
