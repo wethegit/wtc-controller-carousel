@@ -1,13 +1,5 @@
-import {
-  default as ElementController,
-  ExecuteControllers,
-} from "wtc-controller-element";
-import Breakpoints from "wtc-utility-breakpoint";
-
-class Carousel extends ElementController {
+class Carousel {
   constructor(element) {
-    super(element);
-
     this.el = element;
     this.container = this.el.querySelector(".carousel__container");
     this.children = [];
@@ -148,7 +140,7 @@ class Carousel extends ElementController {
   }
 
   get basicSpeed() {
-    return Breakpoints.current / 10 + 0.6;
+    return 2;
   }
 
   set offset(value) {
@@ -205,7 +197,5 @@ class Carousel extends ElementController {
     return this._animating === true;
   }
 }
-
-ExecuteControllers.registerController(Carousel, "Carousel");
 
 export default Carousel;

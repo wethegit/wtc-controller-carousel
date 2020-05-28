@@ -1,6 +1,6 @@
 {
   "name": "wtc-controller-carousel",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "source": "src/wtc-controller-carousel.js",
   "style": "dist/wtc-controller-carousel.css",
   "main": "dist/wtc-controller-carousel.js",
@@ -8,7 +8,7 @@
   "umd:main": "dist/wtc-controller-carousel.umd.js",
   "unpkg": "dist/wtc-controller-carousel.umd.js",
   "scripts": {
-    "build": "rm -rf dist; microbundle --external none; npx node-sass src/wtc-controller-carousel.scss dist/wtc-controller-carousel.css",
+    "build": "rm -rf dist; microbundle; npx node-sass src/wtc-controller-carousel.scss dist/wtc-controller-carousel.css",
     "dev": "microbundle watch",
     "prepare": "npm run build"
   },
@@ -18,9 +18,5 @@
   "devDependencies": {
     "microbundle": "^0.12.0",
     "node-sass": "^4.14.1"
-  },
-  "dependencies": {
-    "wtc-controller-element": "^1.1.1",
-    "wtc-utility-breakpoint": "^1.0.6"
   }
 }
