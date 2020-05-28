@@ -1,12 +1,15 @@
-import { default as ElementController, ExecuteControllers } from 'wtc-controller-element';
-import Breakpoints from 'wtc-utility-breakpoint';
+import {
+  default as ElementController,
+  ExecuteControllers,
+} from "wtc-controller-element";
+import Breakpoints from "wtc-utility-breakpoint";
 
 class Carousel extends ElementController {
   constructor(element) {
     super(element);
 
     this.el = element;
-    this.container = this.el.querySelector('.carousel__container');
+    this.container = this.el.querySelector(".carousel__container");
     this.children = [];
 
     for (let i = 0; i < this.container.children.length; i++) {
@@ -20,8 +23,8 @@ class Carousel extends ElementController {
     this.onResize = this.onResize.bind(this);
     this.run = this.run.bind(this);
 
-    this.el.addEventListener('pointermove', this.onPointerMove);
-    this.el.addEventListener('pointerleave', this.onPointerLeave);
+    this.el.addEventListener("pointermove", this.onPointerMove);
+    this.el.addEventListener("pointerleave", this.onPointerLeave);
 
     this.testSize();
 
@@ -49,7 +52,7 @@ class Carousel extends ElementController {
         }
       }
 
-      toRemove.forEach(child => {
+      toRemove.forEach((child) => {
         this.container.removeChild(child);
       });
       this.offset += addedOffset;
@@ -62,12 +65,13 @@ class Carousel extends ElementController {
         );
 
         // Instanciate any data controllers in the container
-        for (var element of this.container.querySelectorAll("[data-controller]")) {
-
+        for (var element of this.container.querySelectorAll(
+          "[data-controller]"
+        )) {
           if (!element.data || !element.data.instanciated) {
             ExecuteControllers.instanciate(
               element,
-              element.getAttribute('data-controller')
+              element.getAttribute("data-controller")
             );
           }
         }
@@ -80,10 +84,15 @@ class Carousel extends ElementController {
 
   onPointerMove(e) {
     const hasClass = (element) => {
-      if (!element || !element.parentNode || element.classList.contains('carousel__container')) return false;
-      if (element.classList.contains('carousel__item--hover')) return true;
+      if (
+        !element ||
+        !element.parentNode ||
+        element.classList.contains("carousel__container")
+      )
+        return false;
+      if (element.classList.contains("carousel__item--hover")) return true;
       return hasClass(element.parentNode);
-    }
+    };
 
     const paused = hasClass(e.target);
 
@@ -165,9 +174,10 @@ class Carousel extends ElementController {
 
     if (oldValue !== value) {
       let transitioned = false;
-      let targetSpeed = value === true ? this.basicSpeed * .1 : this.basicSpeed;
+      let targetSpeed =
+        value === true ? this.basicSpeed * 0.1 : this.basicSpeed;
       let transition = () => {
-        let step = (targetSpeed - this.speed) * .05;
+        let step = (targetSpeed - this.speed) * 0.05;
         this.speed = this.speed + step;
 
         if (Math.abs(this.speed - targetSpeed) < 0.01) {
@@ -177,7 +187,7 @@ class Carousel extends ElementController {
         if (!transitioned && this.hovered === value) {
           requestAnimationFrame(transition);
         }
-      }
+      };
       requestAnimationFrame(transition);
     }
   }
@@ -196,6 +206,6 @@ class Carousel extends ElementController {
   }
 }
 
-ExecuteControllers.registerController(Carousel, 'Carousel');
+ExecuteControllers.registerController(Carousel, "Carousel");
 
 export default Carousel;
