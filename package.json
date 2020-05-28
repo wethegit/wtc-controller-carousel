@@ -1,12 +1,14 @@
 {
   "name": "wtc-controller-carousel",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "source": "src/wtc-controller-carousel.js",
   "style": "dist/wtc-controller-carousel.css",
-  "main": "dist/wtc-controller-carousel.umd.js",
+  "main": "dist/wtc-controller-carousel.js",
   "module": "dist/wtc-controller-carousel.module.js",
+  "umd:main": "dist/wtc-controller-carousel.umd.js",
+  "unpkg": "dist/wtc-controller-carousel.umd.js",
   "scripts": {
-    "build": "microbundle",
+    "build": "rm -rf dist; microbundle --external none",
     "dev": "microbundle watch",
     "prepare": "npm run build"
   },
