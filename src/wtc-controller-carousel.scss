@@ -1,16 +1,3 @@
-@mixin carousel-resize($height, $ratio, $items) {
-  $total: length($items) - 1;
-
-  @for $i from 0 through $total {
-    $width: nth($items, $i + 1) * $ratio;
-
-    .carousel__item--#{$i} {
-      height: $height * $ratio;
-      width: $width;
-    }
-  }
-}
-
 .carousel {
   overflow: hidden;
   width: 100%;
@@ -33,7 +20,7 @@
   position: absolute;
 
   &::before {
-    content: '';
+    content: "";
     display: block;
   }
 }
