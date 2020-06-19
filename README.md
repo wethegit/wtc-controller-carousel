@@ -5,7 +5,7 @@ Example on [Codepen](https://codepen.io/team/wtc/pen/f3f6619570dd0ef1925893509e2
 
 ## Usage
 
-Install `wtc-controller-carousel` with `npm`.
+Install `wtc-controller-carousel` with `npm`.  
 `npm install wtc-controller-carousel`
 
 1. Add the markup to your template
