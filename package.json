@@ -16,7 +16,7 @@
   "author": "Marlon Marcello <marlon.marcello@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "microbundle": "^0.12.0",
+    "microbundle": "^0.15.1",
     "node-sass": "^7.0.0"
   }
 }
